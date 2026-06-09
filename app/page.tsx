@@ -54,13 +54,13 @@ export default function Home() {
 
           <div className="mt-10 text-center">
             <Button
-              render={<Link href="/about" />}
+              render={<Link href="/skills" />}
               variant="outline"
               size="lg"
               className="border-primary/20 text-primary hover:bg-primary/5"
             >
               <span className="inline-flex items-center gap-2">
-                More About Me
+                View Full Tech Stack
                 <ArrowRight className="w-4 h-4" />
               </span>
             </Button>

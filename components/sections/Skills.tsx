@@ -1,51 +1,93 @@
 import SectionHeading from "@/components/ui/SectionHeading";
 import GlassCard from "@/components/ui/GlassCard";
-import { Cpu, Database, BarChart3, Code2, Cloud, BrainCircuit } from "lucide-react";
+import {
+  BrainCircuit,
+  Cloud,
+  Database,
+  Code2,
+  BarChart3,
+  Cpu,
+  Wrench,
+  Shield,
+} from "lucide-react";
 
 const skillCategories = [
+  {
+    title: "Programming Languages",
+    icon: Code2,
+    skills: [
+      "Python",
+      "Java",
+      "C#",
+      "C++",
+      "SQL",
+      "R",
+    ],
+  },
   {
     title: "AI / ML & Generative AI",
     icon: BrainCircuit,
     skills: [
-      "LLMs (OpenAI, Gemini, Anthropic)",
-      "LangChain & Vector DBs (Pinecone)",
+      "OpenAI (GPT Models)",
+      "Google Gemini",
+      "Anthropic Claude",
+      "LangChain",
+      "Pinecone (Vector DB)",
       "RAG Pipelines",
       "Prompt Engineering",
-      "TensorFlow, scikit-learn",
-      "Time-Series Forecasting (LSTM, XGBoost)",
+      "TensorFlow",
+      "scikit-learn",
+      "XGBoost",
+      "LSTM Networks",
+      "Random Forests",
+      "SVMs",
+      "Deep Neural Networks",
     ],
   },
   {
-    title: "Cloud & Infrastructure",
+    title: "Cloud & DevOps",
     icon: Cloud,
     skills: [
-      "AWS (Terraform, CI/CD)",
-      "Kubernetes & Docker",
-      "Apache Kafka & Spark",
-      "Microservices Architecture",
-      "Auto-scaling & Cost Optimization",
+      "AWS",
+      "Terraform",
+      "CI/CD Pipelines",
+      "Docker",
+      "Kubernetes",
+      "Prometheus",
+      "Grafana",
+      "Auto-scaling",
+      "Zero-Downtime Deploy",
+      "Query Caching",
     ],
   },
   {
-    title: "Data Engineering",
+    title: "Data & Streaming",
     icon: Database,
     skills: [
-      "SQL (Oracle, PostgreSQL)",
-      "Data Warehousing",
+      "Apache Kafka",
+      "Apache Spark",
       "ETL Pipeline Design",
+      "Oracle SQL",
+      "PostgreSQL",
+      "Data Warehousing",
       "Feature Stores",
+      "Column-Store DBs",
       "Streaming Infrastructure",
+      "Data Lakes",
     ],
   },
   {
-    title: "Backend Development",
-    icon: Code2,
+    title: "Backend & Frameworks",
+    icon: Cpu,
     skills: [
-      "Python, Java, C#, C++",
       ".NET / ASP.NET",
       "RESTful API Design",
-      "JUnit & Automated Testing",
+      "Microservices Architecture",
+      "JUnit Testing",
       "SDLC Best Practices",
+      "HIPAA-Compliant APIs",
+      "Java Swing",
+      "Spring Framework",
     ],
   },
   {
@@ -53,21 +95,40 @@ const skillCategories = [
     icon: BarChart3,
     skills: [
       "Predictive Analytics",
-      "Business Intelligence Dashboards",
-      "Revenue Management Systems",
-      "ML Monitoring (Prometheus, Grafana)",
+      "BI Dashboards",
+      "Revenue Management",
+      "ML Monitoring",
       "Data Visualization",
+      "Statistical Modeling",
+      "Time-Series Forecasting",
+      "Algorithmic Pricing",
     ],
   },
   {
-    title: "Domain Expertise",
-    icon: Cpu,
+    title: "Tools & Platforms",
+    icon: Wrench,
     skills: [
-      "Hospitality & Revenue Mgmt",
-      "Finance & Asset Management",
-      "Healthcare & Bioinformatics",
+      "Git / GitHub",
+      "Docker Hub",
+      "Kubernetes (K8s)",
+      "Apache Kafka",
+      "Apache Spark",
+      "Terraform Cloud",
+      "SQL Server",
+      "Oracle DB",
+    ],
+  },
+  {
+    title: "Compliance & Security",
+    icon: Shield,
+    skills: [
       "HIPAA Compliance",
-      "Technology Consulting",
+      "Data Integrity",
+      "Security Auditing",
+      "Code Quality Gating",
+      "Automated Testing",
+      "Reproducible Environments",
+      "Access Control",
     ],
   },
 ];
@@ -77,21 +138,23 @@ export default function Skills() {
     <section className="py-20 sm:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <SectionHeading
-          label="Expertise"
+          label="Tech Stack"
           title="Skills & Technologies"
-          description="A broad technical toolkit spanning AI/ML, cloud architecture, data engineering, and enterprise backend development."
+          description="A comprehensive toolkit spanning AI/ML, cloud architecture, data engineering, backend development, and enterprise platforms — extracted from nearly two decades of hands-on engineering."
         />
 
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((cat) => (
-            <GlassCard key={cat.title} hover>
+            <GlassCard key={cat.title} hover padding="md">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                   <cat.icon className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="font-semibold text-foreground">{cat.title}</h3>
+                <h3 className="font-semibold text-foreground text-sm leading-tight">
+                  {cat.title}
+                </h3>
               </div>
-              <ul className="space-y-2">
+              <ul className="space-y-1.5">
                 {cat.skills.map((skill) => (
                   <li
                     key={skill}
